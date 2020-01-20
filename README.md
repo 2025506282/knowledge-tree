@@ -9,9 +9,7 @@
 #### 2.3、CSS在性能优化方面的实践?
 
 # 3、js,ts
-
 ![](https://user-gold-cdn.xitu.io/2019/12/2/16ec59ae0ab79894?w=909&h=740&f=png&s=76465)
-
 #### 3.1、Js是如何运行的？
 [EventLoop你了解吗？](https://juejin.im/post/5dd23239f265da0bf2112366)
 #### 3.2、Js基础类型和引用类型，深拷贝，浅拷贝？
@@ -25,15 +23,12 @@
 #### 3.5、
 
 # 4、webpack 
-
 ![](https://user-gold-cdn.xitu.io/2019/12/31/16f5aa5cc8a8fb83?w=498&h=219&f=jpeg&s=22828)
-
 #### 4.1、webpack基本原理？
 #### 4.2、webpack的loader了解吗？
 #### 4.3、如何实现多入口？
 
 # 5、vue,react,angular
-
 #### 5.1 Angular与Vue生命周期？
 [Angular与Vue生命周期](https://juejin.im/post/5e16988ff265da5d5d7442b3)
 #### 5.2 Angular与Vue路由钩子？
@@ -43,11 +38,9 @@
 #### 5.6 Angular与Vue区别？
 
 # 6、原理
-
 #### 6.1、`async,await`和`Generate`和`Promise`原理?
 
 
 # 7、浏览器
 ![浏览器进程](https://user-gold-cdn.xitu.io/2020/1/7/16f7ee19a85b3c8f?imageslim)
-
-#### 6.1 渲染进程如何渲染的？
+#### 7.1 渲染进程如何渲染的？
