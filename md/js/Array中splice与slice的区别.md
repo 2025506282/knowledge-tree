@@ -1,4 +1,4 @@
-# splice与slice的区别？
+# Array中splice与slice的区别？
 ### 字面意思
 - splice 拼接，接合；移接
 - slice 切割，切开，割破
