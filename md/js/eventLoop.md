@@ -1,47 +1,52 @@
+# EventLoop你了解吗？
+- js执行代码的时候先执行同步任务再执行异步任务。js中所有代码都是在执行栈中执行的，同步代码会直接放到执行栈执行的，当执行栈为空的时候,然后查找任务队列，然后把任务队列的任务放到执行栈中执行
+```
+    async function  test1() {
+        console.log('1');
+        await 1;
+        console.log('2');
+    }
+    function test2() {
+        return new Promise((resolve) => {
+            console.log('3');
+            resolve();
+        })
+    }
+    setTimeout(()=>{
+        console.log('4');
+    })
+    test2().then((data)=>{
+        console.log('5');
+    })
+    test1();
+    console.log('6');
+```
+### 1、同步任务
+- 普通的js语法，for循坏, resolve(data)前面的语法,awiat 1前面的语法,直接放在执行栈中执行。上述代码1,3,6都是同步任务
+### 2、异步任务
+- js中异步任务分为微任务和宏任务,js是先执行同步任务，再执行宏任务,最后执行微任务,宏任务放在宏任务队列,微任务放在微任务队列。上述代码2,4,5是异步任务。2,5是微任务,4是宏任务;按顺序是**script(宏任务)=》同步任务=》微任务=》宏任务**;**注意script标签就是一个宏任务**;
+#### 2.1、宏任务
+- setInterval,setInterval,宏任务里面可能还有微任务和同步代码、宏任务; 先执行同步,再执行异步任务,最后执行宏任务,如此循坏
+#### 2.2、微任务
+- await ,Promise.resolve().then,那么await与Promise哪一个先执行,其实asyns,await语法也可以看成是一个Promise
+```
+    async function  test1() {
+        console.log('1');
+        await 1;
+        console.log('2');
+    }
+    // 可以看成
+    function test1() {
+        return new Promise((resolve)=>{
+            console.log('1');
+            resolve(1);
+        }).then((data)=>{
+            console.log('2');
+        })
+    }
+```
+具体的async语法源代码会在下一篇文中详解
+- 所以先执行5,后执行2
+### 3、结果
+- 所以上述代码结果1,3,6,5,2,4
 
-        // 之前碰到过这种代码，虽然解决了问题但是不知道原因， 求解     
-        setInterval(async () => {
-            console.log('setInterval------------------------------------');
-            await startConction();
-            console.log('setInterval end');
-        }, 1000)
-        function startConction() {
-            return new Promise((resolve) => {
-                setTimeout(()=>{
-                    console.log('timeout');
-                    resolve();
-                },5000)
-            })
-        }
-这段代码会每隔一秒打印‘setInterval----'吗，五秒后打印’timeout'吗？为什么？
-
-         // 之前碰到过这种代码，虽然解决了问题但是不知道原因， 求解     
-        setInterval(async () => {
-            console.log('setInterval------------------------------------');
-            await startConction();
-            console.log('setInterval end');
-        }, 1000)
-        function startConction() {
-            return new Promise((resolve) => {
-                // for循环执行超过一秒
-                for (let index = 0; index < 9999999; index++) {
-                }
-                console.log('Promise start');
-                resolve();
-            })
-        }
-        
-这段代码也会每隔一秒打印‘setInterval----'吗，五秒后打印’timeout'吗？为什么？
-
-
-## 在js中分为同步任务和异步任务
-
-js执行的时候先执行同步任务再执行异步任务。
-
-js中都是在执行栈中执行的，同步代码会直接放到执行栈执行的
-
-js中异步任务是先放到任务队列中，当执行栈为空的时候,然后查找任务队列，把任务队列放到执行栈中执行。
-
-js中异步任务分为微任务和宏任务，js是先执行同步任务，再执行宏任务，最后执行微任务，注意其实整个js文件就是一个宏任务。其中setInterval和setTimeout为宏任务，其中setInterval和setTimeout都是有一个专门的计时器线程进行管理执行：都会被计时器线程每隔一秒推送到任务队列中，而setTimeout也是微任务Promise里面的宏任务。
-
-例子1分析，刚开始是一整个宏任务，没有同步任务和微任务，此时隔一秒后会把setInterval里面的回调函数放到任务队列中，然后执行栈为空，检查任务队列，执行回调函数，该回调函数里面有同步任务，先执行同步任务，当执行到startConnection里面会有一个setTimeout函数宏任务，隔五秒后放到任务队列，而setInterval会隔一秒后放到任务队列。所以再执行四个setInterval的回调函数再执行setTimeout的回调函数
