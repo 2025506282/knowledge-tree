@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array哪些方法不会改变原来的数组，哪些方法不会？</title>
+</head>
+<body>
+    <script>
+        var pushArr = [2,2,1,3,7,4];
+        var popArr = [2,2,1,3,7,4];
+        var sortArr = [2,2,1,3,7,4];
+        console.log('pushArr res:',pushArr.push(9));
+        console.log('pushArr :',pushArr);
+        console.log('popArr res:',popArr.pop());
+        console.log('popArr :',popArr);
+        console.log('sortArr res:',sortArr.sort());
+        console.log('sortArr :',sortArr);
+    </script>
+</body>
+</html>

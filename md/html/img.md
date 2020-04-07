@@ -10,7 +10,8 @@
 #### alt属性
 图片不存在会显示alt属性上的文字
 #### title属性
-title有两个作用,图片存在鼠标移上显示title;图片不存在会显示title属性上的文字,其优先级低于alt属性
+title有两个作用,图片存在鼠标移上显示title;图片不存在会显示title属性上的文字,其优先级低于alt属性，
+title有字数限制，不能超过8行(Chrome浏览器)
 
 ## PNG,GIF,JPG,SVG,base64区别
 #### PNG

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>splice与slice的区别</title>
+</head>
+<body>
+<script>
+// 不传参
+var spliceArr1 = [1,2,3,4];
+var spliceRes1 = spliceArr1.splice();
+console.log('spliceArr1:' + spliceArr1 + '  <======> spliceRes1:' + spliceRes1); 
+// spliceArr1:1,2,3,4  <======> spliceRes1:
+   
+// 传一个参
+var spliceArr2 = [1,2,3,4];
+var spliceRes2 = spliceArr2.splice(1);
+console.log('spliceArr2:' + spliceArr2 + '  <======> spliceRes2:' + spliceRes2); 
+// spliceArr2:  <======> spliceRes2:1,2,3,4
+
+// 传二个参
+var spliceArr3 = [1,2,3,4];
+var spliceRes3 = spliceArr3.splice(1, 2);
+console.log('spliceArr3:' + spliceArr3 + '  <======> spliceRes3:' + spliceRes3); 
+// spliceArr3:3,4  <======> spliceRes3:1,2
+
+// 传三个参
+var spliceArr4 = [1,2,3,4];
+var spliceRes4 = spliceArr4.splice(1, 2, 11, 22, 33);
+console.log('spliceArr4:' + spliceArr4 + '  <======> spliceRes4:' + spliceRes4); 
+// spliceArr4:1,11,22,33,4  <======> spliceRes4:2,3
+
+// 不传参
+var sliceArr1 = [1,2,3,4];
+var sliceRes1 = sliceArr1.slice();
+console.log('sliceArr1:' + sliceArr1 + '  <======> sliceRes1:' + sliceRes1); 
+// sliceArr1:1,2,3,4  <======> sliceRes1:1,2,3,4
+
+// 传一个参
+var sliceArr2 = [1,2,3,4];
+var sliceRes2 = sliceArr2.slice(1);
+console.log('sliceArr2:' + sliceArr2 + '  <======> sliceRes2:' + sliceRes2); 
+// sliceArr2:1,2,3,4  <======> sliceRes2:1,2,3,4
+
+
+// 传二个参
+var sliceArr3 = [1,2,3,4];
+var sliceRes3 = sliceArr3.slice(1, 2);
+console.log('sliceArr3:' + sliceArr3 + '  <======> sliceRes3:' + sliceRes3); 
+// sliceArr3:3,4  <======> sliceRes3:1,2
+// 总结,splice方法至少要穿一个参数，否侧对其无效,但不会报错; 如果只传入一个参数,默认一个参数arr.length
+
+
+
+// splice 【splais】 拼接，接合；移接；
+// slice 切割，切开，割破
+
+// spliceArr:1  <======> spliceRes:2,3,4
+
+
+// const sliceArr1 = [1,2,3,4];
+// const sliceRes = sliceArr.slice(1,3);
+// console.log('sliceArr:' + spliceArr + '  <======> sliceRes:' + sliceRes); // sliceArr:1  <======> sliceRes:2,3
+
+
+    </script>
+</body>
+</html>

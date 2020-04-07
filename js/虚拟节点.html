@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>虚拟节点</title>
+  </head>
+  <body>
+    <script>
+      var element = {
+        tagName: "ul", // 节点标签名
+        props: {
+          // dom的属性键值对
+          id: "list"
+        },
+        children: [
+          { tagName: "li", props: { class: "item" }, children: ["Item 1"] },
+          { tagName: "li", props: { class: "item" }, children: ["Item 2"] },
+          { tagName: "li", props: { class: "item" }, children: ["Item 3"] }
+        ]
+      };
+
+      function Element(tagName, props, children) {
+        if (!(this instanceof Element)) {
+          return new Element(tagName, props, children);
+        } else {
+          this.tagName = tagName;
+          this.props = props;
+          this.children = children;
+        }
+      }
+
+      var ul = new Element(element.tagName, element.props, element.children);
+      Element.prototype.render = function() {
+        let el = document.createElement(this.tagName), // 节点名称
+          props = this.props; // 节点属性
+
+        for (var propName in props) {
+          propValue = props[propName];
+          el.setAttribute(propName, propValue);
+        }
+
+        this.children.forEach(child => {
+          var childEl = child.hasOwnProperty("tagName")
+            ? new Element(child.tagName, child.props, child.children).render()
+            : document.createTextNode(child);
+          el.appendChild(childEl);
+        });
+        return el;
+      };
+
+      console.log(ul);
+      ulRoot = ul.render();
+      document.body.appendChild(ulRoot);
+    </script>
+  </body>
+</html>
