@@ -2,6 +2,8 @@
 ### 1.1、img标签title与alt区别，PNG,GIF,JPG的区别及如何选,base64优缺点,与Svg区别？
 ### 1.2、iframe优缺点？
 ### 1.3、html5离线存储原理？
+### 1.4、页面回流重绘？
+### 1.5、html5新特性用过那些 ？
 # 2、css,less,scss
 ### 2.1、postcss的作用？
 ### 2.2、stylus/sass/less区别？
@@ -18,8 +20,10 @@
 ### 3.4、String中substring  substr  slice异同？
 [String中substring  substr  slice异同？](https://juejin.im/post/5e8c38fce51d4546c4233d48)
 ### 3.5、Js执行上下文改变函数指针的方法？
-### 3.6、promise处理异步请求与rxjs处理异同？
+### 3.6、Promise处理异步请求与rxjs处理异同？
 ### 3.7、Js作用域链？
+### 3.8、ES6箭头函数的作用？
+### 3.9、手写Promise,bind函数？
 # 4、ts
 # 5、webpack
 ![](./md/images/webpack.jpg)
@@ -35,8 +39,16 @@
 ### 6.5 Angualr与Vue原理(Angular 脏检查实现原理与Vue双向绑定原理)？
 ### 6.6 Angular与Vue区别？
 ### 6.7 React与Vue的diff算法？
+### 6.7 Vuex原理？
+### 6.7 Vue-Router原理？
 # 7、原理
 ### 7.1、`async,await`和`Generate`和`Promise`原理？
+### 7.2、如何搭建一个项目？
 # 8、浏览器
 ![浏览器进程？](./md/images/browser.jpg)
-### 8.1 渲染进程如何渲染的？
+### 8.1 渲染进程如何渲染的,浏览器输入url到页面展示过？
+### 8.2 http与https异同
+### 8.3 http状态码及其含义
+# 思想
+### 组件化思想
+- 组件化在性能相等的原则下，独立升级和维护是最大原则 =》 高内聚，低耦合， 模块化
