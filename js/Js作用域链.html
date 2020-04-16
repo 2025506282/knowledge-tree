@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js作用域链？</title>
+</head>
+<body>
+    <script>
+        // Js作用域分为全局作用域，函数作用域，块记作用域  
+        // Js上下文分为全局上下文，函数上下文，eval上下文，context也就是this  
+        var num = 1; // 声明一个全局变量
+        function  func() {
+            var num = 2; // 声明一个局部变量
+            return num;
+        }
+        console.log(func());
+        // 上下文环境和作用域，上下文环境是在函数调用时确立的（每次调用都会重新创建一个上下文环境），作用域是在函数定义时确立的
+    </script>
+</body>
+</html>

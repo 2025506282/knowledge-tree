@@ -15,16 +15,17 @@
 [Js中EventLoop你了解吗？](https://juejin.im/post/5dd23239f265da0bf2112366)
 ### 3.2、Js基础类型和引用类型，深拷贝，浅拷贝？
 [Js深拷贝浅拷贝？](https://editor.csdn.net/md/？articleId=84581549)
-### 3.3、Array中splice与slice区别？
+### 3.3、Js执行上下文？
+### 3.4、Js作用域链？
+### 3.5、Array中splice与slice区别？
 [Array中splice与slice区别？](https://juejin.im/post/5e8c382051882573b9170f2f)
-### 3.4、String中substring  substr  slice异同？
+### 3.6、String中substring  substr  slice异同？
 [String中substring  substr  slice异同？](https://juejin.im/post/5e8c38fce51d4546c4233d48)
-### 3.5、Js执行上下文改变函数指针的方法？
-[JS中apply,bind,call解析？](https://juejin.im/post/5e96ad12f265da47c71215ad)
-### 3.6、Promise处理异步请求与rxjs处理异同？
-### 3.7、Js作用域链？
-### 3.8、ES6箭头函数的作用？
-### 3.9、手写promise函数？
+### 3.7、ES5中apply,bing,call？
+[ES5中apply,bing,call解析？](https://juejin.im/post/5e96ad12f265da47c71215ad)
+### 3.8、ES6中Promise处理异步请求与rxjs处理异同？
+### 3.9、ES6中promise函数？
+
 # 4、ts
 # 5、webpack
 ![](./md/images/webpack.jpg)
@@ -52,4 +53,4 @@
 ### 8.3 http状态码及其含义
 # 思想
 ### 组件化思想
-- 组件化在性能相等的原则下，独立升级和维护是最大原则 =》 高内聚，低耦合， 模块化
+- 组件化在性能相等的原则下，独立升级和维护是最大原则 =》 高内聚，低耦合， 模块化, 组件化

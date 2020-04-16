@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>async promise异同？</title>
+</head>
+
+<body>
+  <script>
+
+    // 判断变量否为function
+    const isFunction = variable => typeof variable === 'function'
+    // 定义Promise的三种状态常量
+    const PENDING = 'PENDING';
+    const FULFILLED = 'FULFILLED';
+    const REJECTED = 'REJECTED';
+    class MyPromise {
+      constructor(handle) {
+        if (!isFunction(handle)) {
+          throw new Error('Promise must accept a function as a parameter');
+        }
+        // 添加状态
+        this._status = PENDING;
+        this._value = undefined;
+        this._fulfilledQueues = [];
+        this._rejectedQueues = [];
+        // 执行handle
+        try {
+          handle(this._resolve.bind(this), this._reject.bind(this));
+        } catch (err) {
+          this._reject(err);
+        }
+      }
+      _resolve(val) {
+        if (this._status !== PENDING) {
+          return;
+        }
+        const run = () => {
+          this._status = FULFILLED;
+          this._value = val;
+          let cb;
+          while (cb = this._fulfilledQueues.shift()) {
+            cb(val);
+          }
+        }
+        setTimeout(() => {
+          run();
+        })
+      }
+      _reject(err) {
+        if (this._status !== PENDING) {
+          return;
+        }
+        const run = () => {
+          this._status = REJECTED;
+          this._value = err;
+          let cb;
+          while (cb = this._rejectedQueues.shift()) {
+            cb(val);
+          }
+        }
+        setTimeout(() => {
+          run();
+        })
+      }
+      then(onFulfilled, onRejected) {
+        const { _value, _status } = this;
+        // 返回一个新的Promise对象
+        return new MyPromise((onFulfilledNext, onRejectNext) => {
+          // 封装一个成功时执行的函数
+          let fulfilled = value => {
+            try {
+              if (!isFunction(onFulfilled)) {
+                onFulfilledNext(value);
+              } else {
+                let res = onFulfilledNext(value);
+                if (res instanceof MyPromise) {
+                  // 如果当前回调函数返回Promise对象,必须等待其状态改变后再执行下一个回调
+                  res.then(onFulfilledNext, onRejected);
+                } else {
+                  // 否则会将返回结果直接作为参数,传入下一个then的回调函数,并立即执行下一个then的回调函数
+                  onFulfilledNext(res);
+                }
+              }
+            } catch (err) {
+              onRejected(next);
+            }
+          }
+          // 封装一个失败时执行的函数
+          let rejected = error => {
+            try {
+              if (!isFunction(onRejected)) { }
+            } catch (err) {
+
+            }
+          }
+          switch (_status) {
+            // 当状态为pending时，将then方法回调函数加入执行等待队列
+            case PENDING:
+              this._fulfilledQueues.push(fulfilled);
+              this._rejectedQueues.push(rejected);
+              break;
+            case FULFILLED:
+              fulfilled(_value);
+              break;
+            case REJECTED:
+              rejected(_value);
+              break;
+          }
+        })
+      }
+    }
+    let promise = new MyPromise((resolve, reject) => {
+      // setTimeout(()=>{
+      console.log('resolve');
+      resolve('data');
+      // })
+    })
+    promise.then((data) => {
+      console.log('ok ')
+    }, (err) => {
+      console.log('err ')
+    })
+  </script>
+</body>
+
+</html>
