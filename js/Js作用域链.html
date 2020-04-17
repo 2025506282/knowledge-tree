@@ -8,15 +8,41 @@
 </head>
 <body>
     <script>
-        // Js作用域分为全局作用域，函数作用域，块记作用域  
-        // Js上下文分为全局上下文，函数上下文，eval上下文，context也就是this  
-        var num = 1; // 声明一个全局变量
-        function  func() {
-            var num = 2; // 声明一个局部变量
-            return num;
+        // 题目1
+        var z = 10;
+        function foo() {
+            console.log(z);
         }
-        console.log(func());
-        // 上下文环境和作用域，上下文环境是在函数调用时确立的（每次调用都会重新创建一个上下文环境），作用域是在函数定义时确立的
+        (function(funArg){
+            var z = 20;
+            funArg();
+        })(foo);
+        // 上述代码执行结果为10
+        // 函数作用域是在定义的时候确定的,去调用没有关系,
+        // 当函数调用的时候会确定上下文，但这道题和上下文和this，没有太大关系，
+
+        // 题目二
+        var data = [];
+        for(var k = 0; k < 3;k++) {
+            data[k] = function() {
+                console.log(k)
+            }
+        }
+        data[0]();
+        data[1]();
+        data[2]();
+        // 这道题目有两个作用域全局作用域，函数作用域（data[0](),data[1](),data[2]()作用域)
+        // 其中作用域包括变量对象，this,作用域链
+
+
+        // 题目三
+        var tt = 'aa';
+        function test() {
+            console.log(tt);
+            var tt = 'dd';
+            console.log(tt);
+        }
+        test();
     </script>
 </body>
 </html>
