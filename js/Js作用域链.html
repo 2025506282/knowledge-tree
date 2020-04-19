@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js作用域链？</title>
+</head>
+<body>
+    <script>
+        // 题目1
+        var z = 10;
+        function foo() {
+            console.log(z);
+        }
+        (function(funArg){
+            var z = 20;
+            funArg();
+        })(foo);
+        // 上述代码执行结果为10
+        // 函数作用域是在定义的时候确定的,去调用没有关系,
+        // 当函数调用的时候会确定上下文，但这道题和上下文和this，没有太大关系，
+
+        // 题目二
+        var data = [];
+        for(var k = 0; k < 3;k++) {
+            data[k] = function() {
+                console.log(k)
+            }
+        }
+        data[0]();
+        data[1]();
+        data[2]();
+        // 这道题目有两个作用域全局作用域，函数作用域（data[0](),data[1](),data[2]()作用域)
+        // 其中作用域包括变量对象，this,作用域链
+
+
+        // 题目三
+        var tt = 'aa';
+        function test() {
+            console.log(tt);
+            var tt = 'dd';
+            console.log(tt);
+        }
+        test();
+    </script>
+</body>
+</html>

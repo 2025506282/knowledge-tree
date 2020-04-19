@@ -17,7 +17,7 @@
 ```
 ### 总结
 ##### 相同点
-- substring,substr,slice都是截取字符串函数,且都只能传入两份参数,
-- substring,substr,slice都不会改变原来的字符串
+- `substring,slice,substr`都是截取字符串函数,且都只能传入两份参数,
+- `substring,slice,substr`都不会改变原来的字符串
 ##### 不同点
-- substring,slice,substr第一个参数的意思都是字符串起始位置,substr第二个参数是从截取位置截取的个数,substring,slice第二个参数是字符串结束位置
+- `substring,slice,substr`第一个参数的意思都是字符串起始位置,substr第二个参数是从截取位置截取的个数,substring,slice第二个参数是字符串结束位置

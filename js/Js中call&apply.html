@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Call</title>
+  </head>
+
+  <body>
+    <script>
+      Function.prototype.myApply = function (context) {
+        if (typeof this !== "function") {
+          throw new Error("type error");
+        }
+        context.fn = this;
+        let args = [...arguments][1];
+        let result;
+        if (args) {
+          result = context.fn(args);
+        } else {
+          result = context.fn();
+        }
+        delete context.fn;
+        return result;
+      };
+      // call
+      Function.prototype.myCall = function (context) {
+        if (typeof this !== "function") {
+          throw new Error("type error");
+        }
+        context.fn = this;
+        let result = context.fn([...arguments].slice(1));
+        delete context.fn;
+        return result;
+      };
+      // 从上述可以看出call和apply的区别，
+      // 其实mycall函数其实是为传入的对象（或者叫做上下文）重新添加了（赋值）了一个新的方法
+      var cat = {
+        name: "cat",
+        speak: function () {
+          console.log(this.name);
+          console.log(arguments);
+        },
+      };
+      var dog = {
+        name: "dog",
+        speak: function (arr) {
+          console.log(this.name);
+          console.log(arguments);
+        },
+      };
+      // cat.speak.mycall(dog, [2,3]);
+      cat.speak.myCall(dog, 1, 2, 3);
+      cat.speak.myApply(dog, [2, 3]);
+    </script>
+  </body>
+</html>

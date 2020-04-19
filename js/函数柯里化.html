@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数柯里化</title>
+</head>
+
+<body>
+    <script>
+        function multi() {
+            var args = Array.prototype.slice.call(arguments);
+            var fn = function () {
+                var newArgs = args.concat(Array.prototype.slice.call(arguments));
+                return multi.apply(this, newArgs);
+            }
+            fn.toString = function () {
+                return args.reduce(function (a, b) {
+                    return a * b;
+                })
+            }
+            return fn;
+        }
+        console.log(multi(2)(3)(4))
+    // function add(x, y) {
+    //     return x + y;
+    // }
+    // function curryingAdd(x) {
+    //     console.log(arguments);
+    //     return function(y) {
+    //         return x + y;
+    //     }
+    // }
+    // console.log(add(1, 2));
+    // console.log(curryingAdd(1)(2));
+    </script>
+</body>
+
+</html>
