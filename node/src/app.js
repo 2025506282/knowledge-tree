@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var user = require('./db/user')
+var user = require('./db/user');
 //允许访问,解决跨域
 
 app.all('*', function (req, res, next) {
@@ -27,9 +27,12 @@ app.all('*', function (req, res, next) {
 
 //接口
 
-app.get('/user', function (req, res) {
-
-    res.send(user)
+app.get('/users', function (req, res) {
+    res.send({
+        data: user,
+        message: '',
+        status: true
+    })
 
 })
 
