@@ -5,7 +5,8 @@
 /tmp
 /out-tsc
 /webpack/angular/node_modules
-/webpack/vue/node_modules
+/webpack/angular/node_modules
+/node/node_modules
 /webpack/lesson1/node_modules
 /webpack/lesson1/dist
 # dependencies

@@ -11,6 +11,7 @@
 ### 2.4、CSS样式position: sticky;属性详解？
 ### 2.5、介绍一下rem方案和vw方案？
 ### 2.6、移动端1px问题是怎么解决的？
+### 2.7、scss与less相比css有什么优点？
 # 3、js
 ![](./md/images/js.jpg)
 ### 3.1、Js是如何运行的？
@@ -26,6 +27,7 @@
 ### 3.7、ES5中apply,bing,call？
 [ES5中apply,bing,call解析？](https://juejin.im/post/5e96ad12f265da47c71215ad)
 ### 3.8、ES6中promise？
+### 3.9、JS是单线程的，为什么发送异步请求没有组织UI渲染还可以点击？
 
 # 4、ts
 # 5、webpack
@@ -46,15 +48,18 @@
 ### 6.9 Vue-Router原理？
 ### 6.10 nextTick是如何实现的？
 ### 6.11 defineProperty和proxy有什么区别？
+### 6.12 Angular中rxjs操作符以及一些map比较？
+### 6.13 Angular中依赖注入的优点？
+### 6.13 Angular发送http请求的原理 ？
 # 7、原理与算法
 ### 7.1、`async,await`和`Generate`和`Promise`原理？
 ### 7.2、如何搭建一个项目？
-### 7.3、请用算法实现，从给定的无序、不重复的数组A中，取出N个数,使其相加和为M？
 # 8、浏览器
 ![浏览器进程？](./md/images/browser.jpg)
-### 8.1 渲染进程如何渲染的,浏览器输入url到页面展示过？
+### 8.1 渲染进程如何渲染的,浏览器输入url发生了什么？
 ### 8.2 http与https异同
 ### 8.3 http状态码及其含义
+### 8.3 dom书与css树那个先渲染
 # 思想
 ### 组件化思想
 - 组件分类
