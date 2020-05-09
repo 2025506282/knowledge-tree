@@ -41,6 +41,7 @@
 ### 6.2 Angular与Vue路由钩子？
 ### 6.3 Vuex与Service？
 ### 6.4 Angular与Vue组件间通信？
+[Angular与Vue组件间通信？](https://juejin.im/post/5e2158016fb9a0301942f6c4)
 ### 6.5 Angualr与Vue原理(Angular 脏检查实现原理与Vue双向绑定原理)？
 ### 6.6 Angular与Vue区别？
 ### 6.7 React与Vue的diff算法？
@@ -54,12 +55,15 @@
 # 7、原理与算法
 ### 7.1、`async,await`和`Generate`和`Promise`原理？
 ### 7.2、如何搭建一个项目？
+### 7.3、请用算法实现，从给定的无序、不重复的数组A中，取出N个数,使其相加和为M？
+### 7.4、设计模式？
 # 8、浏览器
 ![浏览器进程？](./md/images/browser.jpg)
 ### 8.1 渲染进程如何渲染的,浏览器输入url发生了什么？
 ### 8.2 http与https异同
 ### 8.3 http状态码及其含义
 ### 8.3 dom书与css树那个先渲染
+# 9、微信小程序
 # 思想
 ### 组件化思想
 - 组件分类

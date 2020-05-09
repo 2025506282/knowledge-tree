@@ -1,4 +1,4 @@
-const user = [
+const users = [
     {
         username: 'sunji',
         telephone: 1234
@@ -7,4 +7,4 @@ const user = [
         telephone: 123
     }
 ]
-module.exports = user
+module.exports = users
