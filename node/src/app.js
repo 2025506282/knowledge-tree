@@ -9,8 +9,7 @@ var drugs = require('./db/drugs');
 //允许访问,解决跨域
 
 app.all('*', function (req, res, next) {
-
-    res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+    res.header('Access-Control-Allow-Origin', '*');
 
     res.header('Access-Control-Allow-Headers',
 
@@ -19,9 +18,10 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     res.header('Access-Control-Allow-Credentials', true);
-
-    res.header('X-Powered-By', ' 3.2.1');
-
+    // res.setHeader('ETag', new Date().getTime());
+    // res.header('ETag', new Date().getTime());
+    // res.setHeader("Cache-Control", "max-age=300");
+    res.setHeader('Expires', new Date(Date.now() + 1000).toGMTString());
     res.header('Content-Type', 'application/json;charset=utf-8');
 
     next();
@@ -29,10 +29,11 @@ app.all('*', function (req, res, next) {
 })
 
 //接口
-
 app.get('/users', function (req, res) {
+    // res.setHeader("Cache-Control", "max-age=300");
+    // res.setHeader("Expires", new Date(Date.now() + 2592000000).toUTCString());
     res.send(users)
-})
+});
 app.get('/sports', function (req, res) {
     res.send(sports.sports)
 })

@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "incremental-dom": "^0.7.0",
+    "open": "^7.1.0",
+    "opn": "^6.0.0",
+    "virtual-dom": "^2.1.1"
   }
 }

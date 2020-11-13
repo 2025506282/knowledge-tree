@@ -4,14 +4,12 @@
 */dist
 /tmp
 /out-tsc
-/webpack/angular/node_modules
-/webpack/angular/node_modules
+/angular/study/node_modules
+/vue/study/node_modules
 /node/node_modules
 /webpack/lesson1/node_modules
 /webpack/lesson1/dist
 # dependencies
-*/node_modules
-/node_modules
 # IDEs and editors
 /.idea
 .project

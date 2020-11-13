@@ -1,0 +1,1 @@
+`Vue`数据变化检测，主要是通过数据劫持的方式。`Vue`会对`data`里面的属性进行遍历，并对`data`的对象或者值进行重新定义，调用`Object.defineProperty(obj, property, Function)`，重新定义他的`set,get`方法,所以每次`data`里面的值发生改变都能检测到。

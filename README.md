@@ -17,17 +17,16 @@
 ### 3.1、Js是如何运行的？
 [Js中EventLoop你了解吗？](https://juejin.im/post/5dd23239f265da0bf2112366)
 ### 3.2、Js基础类型和引用类型，深拷贝，浅拷贝？
-[Js深拷贝浅拷贝？](https://editor.csdn.net/md/？articleId=84581549)
+[Js深拷贝浅拷贝？](https://juejin.im/post/5f1e48175188252e9452eaf7)
 ### 3.3、Js执行上下文？
-### 3.4、Js作用域链？
-### 3.5、Array中splice与slice区别？
+[Js执行上下文？](https://juejin.im/post/5f16b2826fb9a07e9e2077b9)
+### 3.4、Array中splice与slice区别？
 [Array中splice与slice区别？](https://juejin.im/post/5e8c382051882573b9170f2f)
-### 3.6、String中substring  substr  slice异同？
+### 3.5、String中substring  substr  slice异同？
 [String中substring  substr  slice异同？](https://juejin.im/post/5e8c38fce51d4546c4233d48)
-### 3.7、ES5中apply,bing,call？
+### 3.6、ES5中apply,bing,call？
 [ES5中apply,bing,call解析？](https://juejin.im/post/5e96ad12f265da47c71215ad)
-### 3.8、ES6中promise？
-### 3.9、JS是单线程的，为什么发送异步请求没有组织UI渲染还可以点击？
+### 3.7、ES6中promise？
 
 # 4、ts
 # 5、webpack
@@ -42,7 +41,7 @@
 ### 6.3 Vuex与Service？
 ### 6.4 Angular与Vue组件间通信？
 [Angular与Vue组件间通信？](https://juejin.im/post/5e2158016fb9a0301942f6c4)
-### 6.5 Angualr与Vue原理(Angular 脏检查实现原理与Vue双向绑定原理)？
+### 6.5 Angualr与Vue原理(数据检测绑定原理)？
 ### 6.6 Angular与Vue区别？
 ### 6.7 React与Vue的diff算法？
 ### 6.8 Vuex原理？
@@ -51,7 +50,7 @@
 ### 6.11 defineProperty和proxy有什么区别？
 ### 6.12 Angular中rxjs操作符以及一些map比较？
 ### 6.13 Angular中依赖注入的优点？
-### 6.13 Angular发送http请求的原理 ？
+### 6.13 Angular发送http请求的原理？
 # 7、原理与算法
 ### 7.1、`async,await`和`Generate`和`Promise`原理？
 ### 7.2、如何搭建一个项目？
@@ -62,7 +61,10 @@
 ### 8.1 渲染进程如何渲染的,浏览器输入url发生了什么？
 ### 8.2 http与https异同
 ### 8.3 http状态码及其含义
-### 8.3 dom书与css树那个先渲染
+### 8.4 dom书与css树那个先渲染
+### 8.5、JS是单线程的，为什么发送异步请求没有组织UI渲染还可以点击？
+### 8.6、http三次挥手，4次分手？
+
 # 9、微信小程序
 # 思想
 ### 组件化思想
@@ -70,3 +72,4 @@
 不需要操作组件（传入一个值对象）（传入一个id然后组件内部进行请求数据）
 需要操作组件（传入数据，组件内部进行修改）
 - 组件化在性能相等的原则下，独立升级和维护是最大原则 =》 高内聚，低耦合， 模块化, 组件化
+
