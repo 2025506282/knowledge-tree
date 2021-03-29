@@ -49,6 +49,8 @@
 `call`与`apply`函数都能改变指针,其实内部就是为传入的上下文赋值一个新的函数`fn`，然后调用这个函数
 ### `call`与`apply`不同点
 `call`与`apply`参数不同,`apply(context, arr)`第一个参数是上下文,第二个参数是数组;`call(context, obj1,obj2,...)`第一个参数是上下文,剩下的参数是对象,可以传入多个对象;两者最后都是把传入的参数转化为数组调用
+从身体object= {};
+obj.call(this);
 
 ### `bind`代码
 
@@ -76,3 +78,21 @@
 三者都能改变函数的指针
 ### `bind`,`call`,`apply`不同点
 `bind(context,obj1,obj2,...)`返回的是一个新的函数,bind函数可以实现多次传参,`bind`函数改变指针,其实也是通过`apply`函数
+
+### new
+function new() {
+    const obj = {};
+    obj.__proto__ = Father.prototype;
+    Father.call(obj, arguments);
+    return obj;
+}
+### call
+function call(obj) {
+    if(typeof this !== 'function') {
+        throw new Error()
+    }
+    const context.fn = this;
+    let result = context.fn([...arguments].slice(1));
+    delete context.fn;
+    return result;
+}

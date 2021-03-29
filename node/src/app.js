@@ -1,11 +1,13 @@
 var express = require('express');
-
+var path = require('path');
+var xlsx = require('node-xlsx').default;
 var app = express();
 
 var users = require('./db/users');
 var sports = require('./db/sports');
 var recipes = require('./db/recipes');
 var drugs = require('./db/drugs');
+var xlsxController = require('./controllers/xlsx');
 //允许访问,解决跨域
 
 app.all('*', function (req, res, next) {
@@ -22,12 +24,12 @@ app.all('*', function (req, res, next) {
     // res.header('ETag', new Date().getTime());
     // res.setHeader("Cache-Control", "max-age=300");
     res.setHeader('Expires', new Date(Date.now() + 1000).toGMTString());
-    res.header('Content-Type', 'application/json;charset=utf-8');
+    // res.header('Content-Type', 'application/json;charset=utf-8');
 
     next();
 
 })
-
+app.use('/static', express.static(path.join(__dirname, 'static')))
 //接口
 app.get('/users', function (req, res) {
     // res.setHeader("Cache-Control", "max-age=300");
@@ -49,6 +51,8 @@ app.get('/drugs', function (req, res) {
 app.get('/addedDrugs', function (req, res) {
     res.send(drugs.addedDrugs)
 })
+app.get('/xlsx', xlsxController.transXlsx);
+app.get('/xlsx/checkbox', xlsxController.transCheckBox);
 var server = app.listen(3000, function () {
 
     var host = server.address().address

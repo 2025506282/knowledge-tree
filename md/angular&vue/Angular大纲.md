@@ -1,0 +1,10 @@
+# Angular大纲
+## Angular生命周期
+- ngOnChanges
+- ngOnInit
+- ngDoCheck
+- ngAfterContentInit
+- ngAfterContentCheckd
+- ngAfterViewInit
+- ngAfterViewCheckd
+- ngOnDestroy

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Custom Protocol Detection</title>
+</head>
+
+<body>
+    <h1>Click one of these labels:</h1>
+
+    <div href="blahblah:randomstuff">Non-exist protocol</div>
+    <div href="file://C:/Users/admin/Desktop/B端测试/cdss-sdk1.js">Test</div>
+    <div href="mailto:johndoe@somewhere.com">Send email
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+    <script src="protocolcheck.js"></script>
+    <script src="example.js"></script>
+
+<!DOCTYPE html>
+ 
+<html>
+ <head>
+    <title>Web Automation</title>
+    <script type="text/javascript">
+        function dicom() {
+            var ret = confirm('Start Dicom Search？');
+            var aetitle = document.getElementById("txtAETitle").value;
+            var patientid = document.getElementById("txtPatientId").value;
+            var accessnumber = document.getElementById("txtAccessionNumber").value;
+            var local = document.getElementById("cbLocal").checked;
+ 
+            if (ret == true) {
+                window.location = 'myapp://,query,' + aetitle + ',' + patientid + ',' + accessnumber + ',' + local;
+            }
+            return;
+        };
+ 
+        function study() {
+            var ret = confirm('Open Study？');
+            var aetitle = document.getElementById("txtAETitle").value;
+            var studyInstanceUId = document.getElementById("txtStudyInstanceUId").value;
+ 
+            if (ret == true) {
+                window.location = 'myapp://,study,' + aetitle + ',' + studyInstanceUId;
+            }
+            return;
+        };
+ 
+        function LaunchApp() {
+            try {
+                var ret = confirm('Start myapp？');
+                if (ret == true) {
+                    window.location = 'myapp://,start';
+                }
+            }
+            catch (ex) {
+                errMsg = "启动 myapp 报错.\n\n";
+                alert(errMsg);
+            }
+            return;
+        };
+    </script>  
+     <style type="text/css">
+         #txtAccessionNumber
+         {
+             width: 191px;
+         }
+         #txtStudyInstanceUId
+         {
+             width: 901px;
+         }
+     </style>
+</head>
+<body>
+    <div>
+       <input type="button" value="Open IView" onclick = "LaunchApp()" /><br /><br />
+ 
+        <label>AE Title: <input id="txtAETitle" type="text" value="AETITLE" /></label>
+        <label>PatientID: <input id="txtPatientId" type="text" value="115042300003"/></label>
+        <label>AccessionNumber: <input id="txtAccessionNumber" type="text" /></label>
+        <label>Search Local:<input id="cbLocal" type="checkbox" value="local" /></label><br />
+        <label>StudyInstanceUId: <input id="txtStudyInstanceUId" type="text" value="1.2.392.200036.9125.2.138612190166.20150423000027"/></label><br /><br />
+ 
+        <input type="button" value="Dicom Search" onclick = "dicom()" /><br /><br />
+        <input type="button" value="Open study" onclick = "study()" />
+ 
+    </div>
+</body>
+
+</body>
+
+</html>

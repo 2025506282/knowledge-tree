@@ -1,0 +1,29 @@
+{
+  "name": "knowledge-tree",
+  "version": "1.0.0",
+  "description": "![](./md/images/js.jpg) ### 3.1、Js是如何运行的？ [Js中EventLoop你了解吗？](https://juejin.im/post/5dd23239f265da0bf2112366) ### 3.2、Js基础类型和引用类型，深拷贝，浅拷贝？ [Js深拷贝浅拷贝？](https://juejin.im/post/5f1e48175188252e9452eaf7) ### 3.3、Js执行上下文？ [Js执行上下文？](https://juejin.im/post/5f16b2826fb9a07e9e2077b9) ### 3.4、Array中splice与slice区别？ [Array中splice与slice区别？](https://juejin.im/post/5e8c382051882573b9170f2f) ### 3.5、String中substring  substr  slice异同？ [String中substring  substr  slice异同？](https://juejin.im/post/5e8c38fce51d4546c4233d48) ### 3.6、ES5中apply,bing,call？ [ES5中apply,bing,call解析？](https://juejin.im/post/5e96ad12f265da47c71215ad) ### 3.7、ES6中promise？",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2025506282/knowledge-tree.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2025506282/knowledge-tree/issues"
+  },
+  "homepage": "https://github.com/2025506282/knowledge-tree#readme",
+  "devDependencies": {
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "ts-lint": "^4.5.1",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3"
+  }
+}
