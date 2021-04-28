@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New实现原理</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(name) {
+                this.name = name;
+                this.speak = this.speak.bind(this);
+            }
+            speak() {
+                console.log(this.name);
+            }
+        }
+        const cat = new Animal('cat');
+        cat.speak();
+
+        // new实现原理
+        // var obj = {};
+        // Animal.prototype = obj.__proto__;
+        // Animal.call(obj);
+        // return obj;
+    </script>
+</body>
+</html>

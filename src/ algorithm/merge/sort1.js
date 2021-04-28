@@ -10,7 +10,7 @@ function mergeSort(arr) {
 }
 function merge(left, right) {
     let result = [];
-    while(left.length > 0 && right.length > 0) {
+    while( right.length > 0 && left.length > 0 ) {
         if(left[0] <= right[0]) {
             result.push(left.shift());
         } else {
@@ -46,4 +46,20 @@ function mergeSort2(intervals) {
     return res;
 }
 const arr2 = [[10,30],[20,60],[80,100],[150,180]];
-console.log(mergeSort2(arr2))
+console.log(mergeSort3(arr2))
+function mergeSort3(arr) {
+    let index = 0;
+    const length = arr.length;
+    const res = [];
+    while(index < length) {// 0 4
+        let left = arr[index][0];// 10
+        let right = arr[index][1];// 30
+        while(index < length -1 && right > arr[index+1][0]) {// 30 20
+            right = Math.max(right, arr[index+1][1]);// 60
+            index++;// 1
+        }
+        res.push([left, right]);// 10 60
+        index++;
+    }
+    return res;
+}

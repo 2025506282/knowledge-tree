@@ -1,0 +1,23 @@
+# ts中基础类型有那些
+- any
+    - 任意类型
+- number 
+    - const a:number = 1;
+- boolean
+    - const a:boolean = true
+- string 
+    - const a:string = '1'
+- enum enum 
+    - Color { Red,Green } const a:Color = Color.Red;
+- void 
+    - function hello(): void {}
+- null 
+    - 表示对象缺失
+- never
+    - never是其他类型的子类型（包括null和undefined）,代表从不会出现的值
+- undefined
+    - 用于初始化一个为定义的值
+- 数组 
+    -  const a:numner[] = [1]
+- 元组 
+    - const x = [string, number] = ['123', 1];

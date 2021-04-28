@@ -36,6 +36,8 @@ ViewChild与ViewChildren初始化之后调用，只调用一次
 * ngOnDestroy<br/>
 去除订阅，销毁事件
 
+生命周期顺序
+ngOnChanges => ngOnInit => ngDoCheck => ngAfterContentInit => ngAfterContentChecked => ngAfterViewInit => ngAfterViewChecked => ngOnDestory
 
 ## Vue与Angular生命周期区别？
 #### Lifecircle.vue
